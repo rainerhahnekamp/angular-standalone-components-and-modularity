@@ -1,11 +1,37 @@
 {
   "version": 1,
   "projects": {
+    "lib1": {
+      "projectType": "library",
+      "root": "libs/lib1",
+      "sourceRoot": "libs/lib1/src",
+      "prefix": "nx-libs",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/lib1"],
+          "options": {
+            "jestConfig": "libs/lib1/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/lib1/src/**/*.ts",
+              "libs/lib1/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "sc": {
       "projectType": "application",
       "root": "apps/sc",
       "sourceRoot": "apps/sc/src",
-      "prefix": "nx-libs",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
