@@ -9,15 +9,12 @@ import { RootProvidedService } from './module/services/root-provided-service';
   providers: [EncapsulatedService],
   template: `<h1>Outside Component accessing Module</h1>
     <app-exposed></app-exposed>
-    <app-stolen></app-stolen>
-    <p>{{ exposedService.introduce() }}</p>
-    <p>{{ rootProvidedService.introduce() }}</p>
-    <p>{{ encapsulatedService.introduce() }}</p>`,
+    <!--<app-encapsulated></app-encapsulated>-->`,
 })
 export class OutsideComponent {
   constructor(
-    public exposedService: ExposedService,
     public rootProvidedService: RootProvidedService,
+    public exposedService: ExposedService,
     public encapsulatedService: EncapsulatedService
   ) {}
 }
